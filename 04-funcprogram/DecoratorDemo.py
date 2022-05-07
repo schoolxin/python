@@ -34,11 +34,15 @@ def metric(fn):
         end = time.time()
         print('%s executed in %s ms' % (fn.__name__, end - start))
         return res;
+
     return wrapper
+
+
 @metric
 def fast(x, y):
     time.sleep(0.0012)
     return x + y;
 
+
 if __name__ == "__main__":
-    print(fast(1,2))
+    print(fast(1, 2))
