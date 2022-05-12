@@ -30,23 +30,41 @@ def run_twice(duck):
     print(duck.power())
 
 
+class Errors(object):
+
+    def __init__(self, mess):
+        print("222")
+        self._mess = mess
+
+    def __str__(self):
+        return self._mess
+
+
+class Errors_c(Errors):
+    print("ss")
+    pass
+
+
 if __name__ == "__main__":
-    obj = MyObject()
-    print(getattr(obj, 'x'))  # 获取属性的值
-    print(hasattr(obj, 'y'))  # 判断对象中是否有该属性
-    if hasattr(obj, 'y'):
-        print(getattr(obj, 'y'))
-    else:
-        setattr(obj, 'y', 100)  # 设置属性的值
+    e = Errors_c("hhh")
+    print(e._mess)
 
-    print(getattr(obj, 'y'))
-
-    print("也可以获取到对象中的方法")
-
-    fn1 = getattr(obj, 'power')
-
-    print(fn1())
-
-    d2 = duck2()
-
-    run_twice(d2)
+    # obj = MyObject()
+    # print(getattr(obj, 'x'))  # 获取属性的值
+    # print(hasattr(obj, 'y'))  # 判断对象中是否有该属性
+    # if hasattr(obj, 'y'):
+    #     print(getattr(obj, 'y'))
+    # else:
+    #     setattr(obj, 'y', 100)  # 设置属性的值
+    #
+    # print(getattr(obj, 'y'))
+    #
+    # print("也可以获取到对象中的方法")
+    #
+    # fn1 = getattr(obj, 'power')
+    #
+    # print(fn1())
+    #
+    # d2 = duck2()
+    #
+    # run_twice(d2)
