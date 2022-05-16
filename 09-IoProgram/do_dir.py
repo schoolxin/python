@@ -23,5 +23,5 @@ if __name__ == "__main__":
         print('%10d  %s  %s%s' % (fsize, mtime, f, flag))
 
     print("wal测试")
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in os.walk(path,topdown=False):
         print(root, dirs, files)
