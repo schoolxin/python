@@ -6,6 +6,8 @@
 import logging
 logging.basicConfig(level=logging.INFO)
 
+from datetime import *
+
 def foo(s):
     return 10 / int(s)
 
@@ -32,7 +34,17 @@ if __name__ == "__main__":
     # print(int('7.6'))
 
     print('END')
-    s = '0'
+    s = '1'
     n = int(s)
     logging.info('n = %d' % n)
     print(10 / n)
+
+    t = datetime(2022,10,21,23, 59, 59)
+    print(t)
+
+    t1 = t + timedelta(hours=-1,minutes=10)
+
+
+    print(t1)
+
+    print((t - t1).seconds)
