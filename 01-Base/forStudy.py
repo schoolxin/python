@@ -11,3 +11,8 @@ if __name__ == "__main__":
         sum = sum + x
         print(x)
     print(sum)
+    while True:
+        print(x)
+        pass
+
+    print("我是pass之后的代码")
