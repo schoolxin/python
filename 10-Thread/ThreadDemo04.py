@@ -30,6 +30,7 @@ def process_data(threadName, q):
         if not workQueue.empty():
             print(q.qsize())
             data = q.get()
+            q.task_done()
             queueLock.release()
             print("%s processing %s" % (threadName, data))
         else:
@@ -40,7 +41,7 @@ def process_data(threadName, q):
 threadList = ["Thread-1", "Thread-2", "Thread-3"]
 nameList = ["One", "Two", "Three", "Four", "Five"]
 queueLock = threading.Lock()
-workQueue = queue.Queue(10)
+workQueue = queue.Queue()
 threads = []
 threadID = 1
 
@@ -59,6 +60,7 @@ queueLock.release()
 
 # 等待队列清空
 while not workQueue.empty():
+    print("jj")
     pass
 
 # 通知线程是时候退出
@@ -67,4 +69,5 @@ exitFlag = 1
 # 等待所有线程完成
 for t in threads:
     t.join()
+# workQueue.join()
 print("退出主线程")
