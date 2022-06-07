@@ -12,5 +12,10 @@ if __name__ == "__main__":
     else:
         print('failed')
 
-    m = re.match(r'^(\d{3})-(\d{3,8})', '010-223-aa')
+    m = re.match(r'^(\d{3})-(\d{3,8})', '010-22355-aa')
     print(m.group(0))
+    re1 = re.compile(r'UTC([\-\+])(\d{1,2})')
+    tz_str = 'UTC-09:00'
+    print(re1.match(tz_str)[1])
+    print(re1.match(tz_str)[2])
+
