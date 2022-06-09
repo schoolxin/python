@@ -6,7 +6,7 @@
 
 
 if __name__ == "__main__":
-    d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+    d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}  # dict初始化方法1
     # d['Thomas'] # 这种访问可能会报错 所以推荐使用get方法取值 如果要用这种形式，可以先判断key是否存在 'Thomas' in d
     if d.get('Thomas') is None:  # 取不到就会返回None
         print("没有取到key对应的值")
@@ -21,3 +21,11 @@ if __name__ == "__main__":
     s1.add(100)
     print(s1)
     print(t1)
+
+    d3 = dict(name=12)  # dict初始化方法2
+    print(d3)
+
+    l2 = [('age', 2), ('name', 3)]  # dict初始化方法3
+
+    print(dict(l2))  # {'age': 2, 'name': 3}
+    print(dict([('age', 33)]))

@@ -55,6 +55,7 @@ class p1():
 
 class c1(p1):
     def __init__(self, height, age):
+        # super(c1,self).__init__()
         self.height = height
         self.age = age
 
