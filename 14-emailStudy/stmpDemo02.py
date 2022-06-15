@@ -36,7 +36,7 @@ if __name__ == "__main__":
         mime = MIMEBase('image', 'png', filename='test.png')
         # 加上必要的头信息:
         mime.add_header('Content-Disposition', 'attachment', filename='test.png')
-        mime.add_header('Content-ID', '<0>')
+        # mime.add_header('Content-ID', '<0>')
         mime.add_header('X-Attachment-Id', '0')
         # 把附件的内容读进来:
         mime.set_payload(f.read())
@@ -49,6 +49,6 @@ if __name__ == "__main__":
 
     server.login('bi@orderplus.com', 'Orderplus.2020')  # 用发件人邮箱和密码登陆smtp服务器
 
-    server.sendmail('bi@orderplus.com', ['707643733@qq.com'], msg.as_string())
+    server.sendmail('bi@orderplus.com', ['iraq.deng@orderplus.com'], msg.as_string())
 
     server.quit()
