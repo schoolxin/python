@@ -115,17 +115,17 @@ if __name__ == "__main__":
     # print("fib")
     #
     #
-    # def fib(max):
-    #     n, a, b = 0, 0, 1
-    #     while n < max:
-    #         yield b
-    #         a, b = b, a + b
-    #         n = n + 1
-    #
-    #
+    def fib(max):
+        n, a, b = 0, 0, 1
+        while n < max:
+            yield b
+            a, b = b, a + b
+            n = n + 1
+
+
     # f = fib(6)
-    # for i in fib(10):
-    #     print(i)
+    for i in fib(10):
+        print(i)
     #
     #
     # def func(a):

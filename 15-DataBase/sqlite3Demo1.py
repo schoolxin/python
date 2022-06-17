@@ -27,14 +27,14 @@ def get_score_in(low, high):
     curs = cnn.cursor()
     curs.execute("select name from user where score >=? and score<=? order by score asc", (low, high))
 
-    values = curs.fetchall()
-
-    for v in values:
-        print(v[0])
-
-    return [v[0] for v in values]
+    # values = curs.fetchall()
+    for row in iter(lambda: curs.fetchone(), None):
+        yield row
 
 
 if __name__ == "__main__":
-    print(get_score_in(60, 80))
+
+    for value in get_score_in(60, 90):
+        print(value[0])
+
 cnn.close()
