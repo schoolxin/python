@@ -11,8 +11,11 @@ import asyncio
 @asyncio.coroutine
 def wget(host):
     print('wget %s...' % host)
-    connect = asyncio.open_connection(host, 80)
+
+    port = 80 if host == "www.sohu.com" else 90
+    connect = asyncio.open_connection(host, port)
     reader, writer = yield from connect
+    # print("ttt")
     header = 'GET / HTTP/1.0\r\nHost: %s\r\n\r\n' % host
     writer.write(header.encode('utf-8'))
     yield from writer.drain()

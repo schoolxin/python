@@ -8,7 +8,8 @@ def consumer():
     r = ''
     while True:
         n = yield r
-        if not 1:
+
+        if not n:
             return
         print('[CONSUMER] Consuming %s...' % n)
         r = '200 OK'
@@ -20,10 +21,10 @@ def produce(c):
     while n < 5:
         n = n + 1
         print('[PRODUCER] Producing %s...' % n)
-        r = c.send(n)
-        print('[PRODUCER] Consumer return: %s' % r)
+        t = c.send(n)
+        print('[PRODUCER] Consumer return: %s' % t)
     c.close()
 
 
-c = consumer()
+c = consumer()  # 返回一个生成器 函数不会被执行的
 produce(c)

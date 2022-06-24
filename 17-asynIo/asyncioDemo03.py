@@ -22,7 +22,7 @@ def taskIO_2():
 @asyncio.coroutine  # 标志协程的装饰器
 def main():  # 调用方
     tasks = [taskIO_2(), taskIO_1()]  # 把所有任务添加到task中
-    done, pending = yield from asyncio.wait(tasks)  # 子生成器
+    done, pending = yield from asyncio.wait(tasks)  # 子生成器 同时通过yield from返回一个包含(done, pending)的元组
     for r in done:  # done和pending都是一个任务，所以返回结果需要逐个调用result()
         print('done协程无序返回值：' + r.result())
     for r in pending:  # done和pending都是一个任务，所以返回结果需要逐个调用result()

@@ -4,13 +4,14 @@
 # @Author    :dzz
 # @Function  :
 
-
-def num():
-    n = 100
-    print(n)
-    a = yield 1
+def test(val=1):
     while True:
-        a = yield a
+        y = yield val
+        val = y
+        print(f"y:{y}")
 
 
-num()
+t = test()
+
+print(next(t))
+print(t.send("hello"))
